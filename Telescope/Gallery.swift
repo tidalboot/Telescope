@@ -17,9 +17,10 @@ class GalleryItem: UICollectionViewCell {
 class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     private var gallery: UICollectionView!
+    private var records = [TelescopeRecord]()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return records.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -33,7 +34,6 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             height: galleryItem.frame.size.height
             )
         )
-        itemImage.backgroundColor = .blue
         galleryItem.addSubview(itemImage)
         
         let backgroundGradient = CAGradientLayer()
@@ -43,6 +43,18 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         let fadedBlack = UIColor.init(colorLiteralRed: 0.0 / 255.0, green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 0.75)
         backgroundGradient.colors = [fadedLightGray.cgColor, fadedBlack.cgColor]
         itemImage.layer.insertSublayer(backgroundGradient, at: 1)
+        
+        let itemTitle = UILabel(frame: CGRect(
+            x: 10,
+            y: galleryItem.frame.size.height * 0.7,
+            width: galleryItem.frame.size.width - 20,
+            height: galleryItem.frame.size.height * 0.3
+            )
+        )
+        itemTitle.text = records[indexPath.row].Title
+        itemTitle.textColor = .white
+        itemTitle.numberOfLines = 2
+        galleryItem.addSubview(itemTitle)
         
         return galleryItem
     }
@@ -65,6 +77,17 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         gallery.backgroundColor = .white
         
         view.addSubview(gallery)
+        
+        getRecords()
+    }
+    
+    private func getRecords() {
+        Lense().requestRecords { (recordsReturned) in
+            DispatchQueue.main.async {
+                self.records = recordsReturned
+                self.gallery.reloadData()
+            }
+        }
     }
     
 }

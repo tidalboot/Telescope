@@ -37,6 +37,7 @@ class RecordTests: XCTestCase {
         
         if (records.isEmpty) {
             XCTFail("No records were found")
+            return
         }
         
         //We're safe to force unwrap the first object here because we've already checked that the array is not empty
@@ -52,6 +53,7 @@ class RecordTests: XCTestCase {
         
         if (records.count < 2) {
             XCTFail("Incorrect number of records are being parsed from the mocked data")
+            return
         }
         
         //Again we're safe to force unwrap the first object here because we've already checked that the array contains two objects
@@ -67,6 +69,7 @@ class RecordTests: XCTestCase {
         
         if (records.isEmpty) {
             XCTFail("No records were found")
+            return
         }
         
         //We're safe to force unwrap the first object here because we've already checked that the array is not empty
@@ -82,6 +85,7 @@ class RecordTests: XCTestCase {
         
         if (records.count < 2) {
             XCTFail("Incorrect number of records are being parsed from the mocked data")
+            return
         }
         
         //Again we're safe to force unwrap the first object here because we've already checked that the array contains two objects
@@ -97,6 +101,7 @@ class RecordTests: XCTestCase {
         
         if (records.isEmpty) {
             XCTFail("No records were found")
+            return
         }
         
         //We're safe to force unwrap the first object here because we've already checked that the array is not empty
@@ -112,11 +117,13 @@ class RecordTests: XCTestCase {
         
         if (records.isEmpty) {
             XCTFail("No records were found")
+            return
         }
         
         //Again we're safe to force unwrap the first object here because we've already checked that the array contains two objects
         if (records.count < 2) {
             XCTFail("Incorrect number of records are being parsed from the mocked data")
+            return
         }
         
         XCTAssertEqual(
@@ -131,6 +138,7 @@ class RecordTests: XCTestCase {
         
         if (records.isEmpty) {
             XCTFail("No records were found")
+            return
         }
         
         //We're safe to force unwrap the first object here because we've already checked that the array is not empty
@@ -147,11 +155,13 @@ class RecordTests: XCTestCase {
         
         if (records.isEmpty) {
             XCTFail("No records were found")
+            return
         }
         
         //Again we're safe to force unwrap the first object here because we've already checked that the array contains two objects
         if (records.count < 2) {
             XCTFail("Incorrect number of records are being parsed from the mocked data")
+            return
         }
         
         XCTAssertEqual(
@@ -166,6 +176,7 @@ class RecordTests: XCTestCase {
         
         if (records.isEmpty) {
             XCTFail("No records were found")
+            return
         }
         
         let testURL = "https://farm5.staticflickr.com/4353/36184066574_e352dc6bd7.jpg"

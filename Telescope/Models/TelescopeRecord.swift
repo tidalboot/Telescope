@@ -61,7 +61,7 @@ class TelescopeRecord {
         }
         
         do {
-            guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any] else {
+            guard let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String : Any] else {
                 return telescopeRecords
             }
             
