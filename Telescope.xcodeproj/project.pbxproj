@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC32231F1F5D749F00113193 /* TelescopeRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32231E1F5D749F00113193 /* TelescopeRecord.swift */; };
+		FC3223211F5D7CEF00113193 /* TelescopeRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32231E1F5D749F00113193 /* TelescopeRecord.swift */; };
+		FC3223231F5D80F500113193 /* MockedRecords.json in Resources */ = {isa = PBXBuildFile; fileRef = FC3223221F5D80F500113193 /* MockedRecords.json */; };
 		FCAE2A1A1F5D68190036211B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAE2A191F5D68190036211B /* AppDelegate.swift */; };
 		FCAE2A1C1F5D68190036211B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAE2A1B1F5D68190036211B /* ViewController.swift */; };
 		FCAE2A1F1F5D68190036211B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCAE2A1D1F5D68190036211B /* Main.storyboard */; };
 		FCAE2A211F5D68190036211B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCAE2A201F5D68190036211B /* Assets.xcassets */; };
 		FCAE2A241F5D68190036211B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCAE2A221F5D68190036211B /* LaunchScreen.storyboard */; };
 		FCAE2A3A1F5D6B450036211B /* RecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAE2A391F5D6B450036211B /* RecordTests.swift */; };
-		FCAE2A3C1F5D6B9C0036211B /* MockedData in Resources */ = {isa = PBXBuildFile; fileRef = FCAE2A3B1F5D6B9C0036211B /* MockedData */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC32231E1F5D749F00113193 /* TelescopeRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelescopeRecord.swift; sourceTree = "<group>"; };
+		FC3223221F5D80F500113193 /* MockedRecords.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockedRecords.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		FCAE2A161F5D68190036211B /* Telescope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Telescope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCAE2A191F5D68190036211B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCAE2A1B1F5D68190036211B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,7 +41,6 @@
 		FCAE2A2A1F5D68190036211B /* TelescopeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TelescopeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCAE2A301F5D68190036211B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCAE2A391F5D6B450036211B /* RecordTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordTests.swift; sourceTree = "<group>"; };
-		FCAE2A3B1F5D6B9C0036211B /* MockedData */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MockedData; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FC32231D1F5D748F00113193 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FC32231E1F5D749F00113193 /* TelescopeRecord.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		FCAE2A0D1F5D68180036211B = {
 			isa = PBXGroup;
 			children = (
@@ -79,12 +90,14 @@
 		FCAE2A181F5D68190036211B /* Telescope */ = {
 			isa = PBXGroup;
 			children = (
+				FC32231D1F5D748F00113193 /* Models */,
 				FCAE2A191F5D68190036211B /* AppDelegate.swift */,
 				FCAE2A1B1F5D68190036211B /* ViewController.swift */,
 				FCAE2A1D1F5D68190036211B /* Main.storyboard */,
 				FCAE2A201F5D68190036211B /* Assets.xcassets */,
 				FCAE2A221F5D68190036211B /* LaunchScreen.storyboard */,
 				FCAE2A251F5D68190036211B /* Info.plist */,
+				FC3223221F5D80F500113193 /* MockedRecords.json */,
 			);
 			path = Telescope;
 			sourceTree = "<group>";
@@ -94,7 +107,6 @@
 			children = (
 				FCAE2A301F5D68190036211B /* Info.plist */,
 				FCAE2A391F5D6B450036211B /* RecordTests.swift */,
-				FCAE2A3B1F5D6B9C0036211B /* MockedData */,
 			);
 			path = TelescopeTests;
 			sourceTree = "<group>";
@@ -185,6 +197,7 @@
 			files = (
 				FCAE2A241F5D68190036211B /* LaunchScreen.storyboard in Resources */,
 				FCAE2A211F5D68190036211B /* Assets.xcassets in Resources */,
+				FC3223231F5D80F500113193 /* MockedRecords.json in Resources */,
 				FCAE2A1F1F5D68190036211B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,7 +206,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCAE2A3C1F5D6B9C0036211B /* MockedData in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +218,7 @@
 			files = (
 				FCAE2A1C1F5D68190036211B /* ViewController.swift in Sources */,
 				FCAE2A1A1F5D68190036211B /* AppDelegate.swift in Sources */,
+				FC32231F1F5D749F00113193 /* TelescopeRecord.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC3223211F5D7CEF00113193 /* TelescopeRecord.swift in Sources */,
 				FCAE2A3A1F5D6B450036211B /* RecordTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +427,7 @@
 				FCAE2A351F5D68190036211B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FCAE2A361F5D68190036211B /* Build configuration list for PBXNativeTarget "TelescopeTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +436,7 @@
 				FCAE2A381F5D68190036211B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
