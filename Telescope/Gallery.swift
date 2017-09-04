@@ -41,8 +41,9 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             )
         )
         
-        if let imageURL = URL(string: recordToUse.Images.Medium) {
-            galleryItem.imageView.sd_setImage(with: imageURL, placeholderImage: nil)
+        if let highQualityImageAvailable = recordToUse.Images.Original,
+            let highQualityURL = URL(string: highQualityImageAvailable) {
+                galleryItem.imageView.sd_setImage(with: highQualityURL, placeholderImage: nil)
         }
         
         galleryItem.titleLabel = UILabel(frame: CGRect(
@@ -60,10 +61,6 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         return galleryItem
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
-    
     override func viewDidLoad() {
         
         view.backgroundColor = .white
@@ -76,7 +73,6 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             )
         )
         loadingLabel.numberOfLines = 0
-        loadingLabel.text = whatAreYouLookingFor
         loadingLabel.textColor = .darkGray
         loadingLabel.textAlignment = .center
         loadingLabel.font = UIFont.systemFont(ofSize: 40)
@@ -112,10 +108,11 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         gallery.register(GalleryItem.self, forCellWithReuseIdentifier: "galleryItem")
         gallery.backgroundColor = .white
         gallery.alpha = 0
+        gallery.layoutMargins = .zero
         
         view.addSubview(gallery)
         
-        searchBar.becomeFirstResponder()        
+        searchBar.becomeFirstResponder()
     }
 
     
@@ -141,7 +138,7 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         self.gallery.reloadData()
         self.gallery.setContentOffset(.zero, animated: false)
         
-        UIView.animate(withDuration: 0.3, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             self.gallery.alpha = 1
         })
     }
