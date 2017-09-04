@@ -72,8 +72,11 @@ class TelescopeRecord {
             
             for record in records {
                 
+                //TITLE
                 let title = record["title"] as? String ?? "N/A"
+                //----------
                 
+                //DATETAKEN
                 var dateTaken = "N/A"
                 if let rawDate = record["date_taken"] as? String {
                     let dateFormatter = DateFormatter()
@@ -85,7 +88,9 @@ class TelescopeRecord {
                         dateTaken = dateFormatter.string(from: dateFound)
                     }
                 }
+                //----------
                 
+                //DIMENSIONS
                 var dimensions = "N/A"
                 if let rawDescription = record["description"] as? String {
                     if let width = extractDescriptionValue(fromDescription: rawDescription, withKey: "width"),
@@ -93,12 +98,24 @@ class TelescopeRecord {
                         dimensions = "\(width)x\(height)"
                     }
                 }
+                //----------
+                
+                //AUTHOR
+                var author = "N/A"
+                if let rawAuthor = record["author"] as? String {
+                    let escapeTidied = rawAuthor.replacingOccurrences(of: "\\", with: "")
+                    let seperatedByParenthesis = escapeTidied.components(separatedBy: "(\"")
+                    if (seperatedByParenthesis.count > 1) {
+                        author = seperatedByParenthesis[1].replacingOccurrences(of: "\")", with: "")
+                    }
+                }
+                //----------
                 
                 telescopeRecords.append(TelescopeRecord(
                     withTitle: title,
                     dateTaken: dateTaken,
                     dimensions: dimensions,
-                    author: "",
+                    author: author,
                     andImageURL: "")
                 )
             }

@@ -125,36 +125,43 @@ class RecordTests: XCTestCase {
             "Dimensions property is not being set to the correct default value when dimensions are not available"
         )
     }
+    
+    func testAuthorIsRetrievedWhenAvailable() {
+        let records = TelescopeRecord.parseRecords(fromRawData: mockedRecordsData)
+        
+        if (records.isEmpty) {
+            XCTFail("No records were found")
+        }
+        
+        //We're safe to force unwrap the first object here because we've already checked that the array is not empty
+        XCTAssertEqual(
+            records.first!.Author,
+            "Tyrion Fordring",
+            "Author property is not being extracted when available"
+        )
+    }
+    
+    
+    func testDefaultAuthorValueIsCorrectWhenAuthorIsUnavailable() {
+        let records = TelescopeRecord.parseRecords(fromRawData: mockedRecordsData)
+        
+        if (records.isEmpty) {
+            XCTFail("No records were found")
+        }
+        
+        //Again we're safe to force unwrap the first object here because we've already checked that the array contains two objects
+        if (records.count < 2) {
+            XCTFail("Incorrect number of records are being parsed from the mocked data")
+        }
+        
+        
+        XCTAssertEqual(
+            records[1].Author,
+            "N/A",
+            "Author property is not being set to the correct default value when the author is not available"
+        )
+    }
 //
-//    func testAuthorIsRetrievedWhenAvailable() {
-//        let records = TelescopeRecord.parseRecords(fromRawData: mockedRecordsData)
-//        
-//        if (records.isEmpty) {
-//            XCTFail("No records were found")
-//        }
-//    
-//        XCTAssertEqual(
-//            records.first.Author,
-//            "TyrionFordring",
-//            "Author property is not being extracted when available"
-//        )
-//    }
-//
-//    
-//    func testDefaultAuthorValueIsCorrectWhenAuthorIsUnavailable() {
-//        let records = TelescopeRecord.parseRecords(fromRawData: mockedRecordsData)
-//        
-//        if (records.isEmpty) {
-//            XCTFail("No records were found")
-//        }
-//        
-//        XCTAssertEqual(
-//            records[1].Author,
-//            "N/A",
-//            "Author property is not being set to the correct default value when the author is not available"
-//        )
-//    }
-//    
 //    func testOriginalSizedImageURLIsCorrectlyInferredFromMediumImageURL() {
 //        let records = TelescopeRecord.parseRecords(fromRawData: mockedRecordsData)
 //        
