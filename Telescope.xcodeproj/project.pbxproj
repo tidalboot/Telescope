@@ -1,0 +1,421 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FCAE2A1A1F5D68190036211B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAE2A191F5D68190036211B /* AppDelegate.swift */; };
+		FCAE2A1C1F5D68190036211B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAE2A1B1F5D68190036211B /* ViewController.swift */; };
+		FCAE2A1F1F5D68190036211B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCAE2A1D1F5D68190036211B /* Main.storyboard */; };
+		FCAE2A211F5D68190036211B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCAE2A201F5D68190036211B /* Assets.xcassets */; };
+		FCAE2A241F5D68190036211B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCAE2A221F5D68190036211B /* LaunchScreen.storyboard */; };
+		FCAE2A2F1F5D68190036211B /* TelescopeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAE2A2E1F5D68190036211B /* TelescopeTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FCAE2A2B1F5D68190036211B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FCAE2A0E1F5D68180036211B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FCAE2A151F5D68180036211B;
+			remoteInfo = Telescope;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FCAE2A161F5D68190036211B /* Telescope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Telescope.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCAE2A191F5D68190036211B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FCAE2A1B1F5D68190036211B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FCAE2A1E1F5D68190036211B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FCAE2A201F5D68190036211B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FCAE2A231F5D68190036211B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FCAE2A251F5D68190036211B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCAE2A2A1F5D68190036211B /* TelescopeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TelescopeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCAE2A2E1F5D68190036211B /* TelescopeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelescopeTests.swift; sourceTree = "<group>"; };
+		FCAE2A301F5D68190036211B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FCAE2A131F5D68180036211B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCAE2A271F5D68190036211B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FCAE2A0D1F5D68180036211B = {
+			isa = PBXGroup;
+			children = (
+				FCAE2A181F5D68190036211B /* Telescope */,
+				FCAE2A2D1F5D68190036211B /* TelescopeTests */,
+				FCAE2A171F5D68190036211B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FCAE2A171F5D68190036211B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FCAE2A161F5D68190036211B /* Telescope.app */,
+				FCAE2A2A1F5D68190036211B /* TelescopeTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FCAE2A181F5D68190036211B /* Telescope */ = {
+			isa = PBXGroup;
+			children = (
+				FCAE2A191F5D68190036211B /* AppDelegate.swift */,
+				FCAE2A1B1F5D68190036211B /* ViewController.swift */,
+				FCAE2A1D1F5D68190036211B /* Main.storyboard */,
+				FCAE2A201F5D68190036211B /* Assets.xcassets */,
+				FCAE2A221F5D68190036211B /* LaunchScreen.storyboard */,
+				FCAE2A251F5D68190036211B /* Info.plist */,
+			);
+			path = Telescope;
+			sourceTree = "<group>";
+		};
+		FCAE2A2D1F5D68190036211B /* TelescopeTests */ = {
+			isa = PBXGroup;
+			children = (
+				FCAE2A2E1F5D68190036211B /* TelescopeTests.swift */,
+				FCAE2A301F5D68190036211B /* Info.plist */,
+			);
+			path = TelescopeTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FCAE2A151F5D68180036211B /* Telescope */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCAE2A331F5D68190036211B /* Build configuration list for PBXNativeTarget "Telescope" */;
+			buildPhases = (
+				FCAE2A121F5D68180036211B /* Sources */,
+				FCAE2A131F5D68180036211B /* Frameworks */,
+				FCAE2A141F5D68180036211B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Telescope;
+			productName = Telescope;
+			productReference = FCAE2A161F5D68190036211B /* Telescope.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FCAE2A291F5D68190036211B /* TelescopeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FCAE2A361F5D68190036211B /* Build configuration list for PBXNativeTarget "TelescopeTests" */;
+			buildPhases = (
+				FCAE2A261F5D68190036211B /* Sources */,
+				FCAE2A271F5D68190036211B /* Frameworks */,
+				FCAE2A281F5D68190036211B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FCAE2A2C1F5D68190036211B /* PBXTargetDependency */,
+			);
+			name = TelescopeTests;
+			productName = TelescopeTests;
+			productReference = FCAE2A2A1F5D68190036211B /* TelescopeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FCAE2A0E1F5D68180036211B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = NickJones;
+				TargetAttributes = {
+					FCAE2A151F5D68180036211B = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+					FCAE2A291F5D68190036211B = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FCAE2A151F5D68180036211B;
+					};
+				};
+			};
+			buildConfigurationList = FCAE2A111F5D68180036211B /* Build configuration list for PBXProject "Telescope" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FCAE2A0D1F5D68180036211B;
+			productRefGroup = FCAE2A171F5D68190036211B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FCAE2A151F5D68180036211B /* Telescope */,
+				FCAE2A291F5D68190036211B /* TelescopeTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FCAE2A141F5D68180036211B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCAE2A241F5D68190036211B /* LaunchScreen.storyboard in Resources */,
+				FCAE2A211F5D68190036211B /* Assets.xcassets in Resources */,
+				FCAE2A1F1F5D68190036211B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCAE2A281F5D68190036211B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FCAE2A121F5D68180036211B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCAE2A1C1F5D68190036211B /* ViewController.swift in Sources */,
+				FCAE2A1A1F5D68190036211B /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FCAE2A261F5D68190036211B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FCAE2A2F1F5D68190036211B /* TelescopeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FCAE2A2C1F5D68190036211B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FCAE2A151F5D68180036211B /* Telescope */;
+			targetProxy = FCAE2A2B1F5D68190036211B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FCAE2A1D1F5D68190036211B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCAE2A1E1F5D68190036211B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FCAE2A221F5D68190036211B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCAE2A231F5D68190036211B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FCAE2A311F5D68190036211B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FCAE2A321F5D68190036211B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FCAE2A341F5D68190036211B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Telescope/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = NickJones.Telescope;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		FCAE2A351F5D68190036211B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Telescope/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = NickJones.Telescope;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		FCAE2A371F5D68190036211B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TelescopeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = NickJones.TelescopeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Telescope.app/Telescope";
+			};
+			name = Debug;
+		};
+		FCAE2A381F5D68190036211B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TelescopeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = NickJones.TelescopeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Telescope.app/Telescope";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FCAE2A111F5D68180036211B /* Build configuration list for PBXProject "Telescope" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCAE2A311F5D68190036211B /* Debug */,
+				FCAE2A321F5D68190036211B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FCAE2A331F5D68190036211B /* Build configuration list for PBXNativeTarget "Telescope" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCAE2A341F5D68190036211B /* Debug */,
+				FCAE2A351F5D68190036211B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FCAE2A361F5D68190036211B /* Build configuration list for PBXNativeTarget "TelescopeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FCAE2A371F5D68190036211B /* Debug */,
+				FCAE2A381F5D68190036211B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FCAE2A0E1F5D68180036211B /* Project object */;
+}
