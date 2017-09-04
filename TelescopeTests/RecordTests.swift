@@ -43,7 +43,7 @@ class RecordTests: XCTestCase {
         //We're safe to force unwrap the first object here because we've already checked that the array is not empty
         XCTAssertEqual(
             records.first!.Title,
-            "Great Title",
+            "Great",
             "Record title is not being parsed to the correct format"
         )
     }

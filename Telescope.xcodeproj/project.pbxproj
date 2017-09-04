@@ -237,7 +237,6 @@
 				TargetAttributes = {
 					FCAE2A151F5D68180036211B = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = YXQ38WDX5L;
 						ProvisioningStyle = Automatic;
 					};
 					FCAE2A291F5D68190036211B = {
@@ -534,7 +533,7 @@
 			baseConfigurationReference = 9763763FC9860CD075ED35D6 /* Pods-Telescope.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = YXQ38WDX5L;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Telescope/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = NickJones.Telescope;
@@ -548,7 +547,7 @@
 			baseConfigurationReference = 23F4AE8DE2ABF9DC2496F55D /* Pods-Telescope.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = YXQ38WDX5L;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Telescope/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = NickJones.Telescope;
