@@ -111,17 +111,33 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		FC32232D1F5DC60100113193 /* New Group */ = {
+		FC32232E1F5DD1A000113193 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FC3223241F5D967E00113193 /* Gallery.swift */,
 			);
-			name = "New Group";
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FC32232F1F5DD1AA00113193 /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				FC3223261F5DA26D00113193 /* Lense.swift */,
+			);
+			path = Handlers;
+			sourceTree = "<group>";
+		};
+		FC3223301F5DD1B600113193 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FC3223281F5DB5B300113193 /* GalleryItem.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		FCAE2A0D1F5D68180036211B = {
 			isa = PBXGroup;
 			children = (
-				FC32232D1F5DC60100113193 /* New Group */,
 				FCAE2A181F5D68190036211B /* Telescope */,
 				FCAE2A2D1F5D68190036211B /* TelescopeTests */,
 				FCAE2A171F5D68190036211B /* Products */,
@@ -142,6 +158,9 @@
 		FCAE2A181F5D68190036211B /* Telescope */ = {
 			isa = PBXGroup;
 			children = (
+				FC3223301F5DD1B600113193 /* Views */,
+				FC32232F1F5DD1AA00113193 /* Handlers */,
+				FC32232E1F5DD1A000113193 /* Controllers */,
 				FC32232C1F5DC5EF00113193 /* Extensions */,
 				FC32231D1F5D748F00113193 /* Models */,
 				FCAE2A191F5D68190036211B /* AppDelegate.swift */,
@@ -149,9 +168,6 @@
 				FCAE2A221F5D68190036211B /* LaunchScreen.storyboard */,
 				FCAE2A251F5D68190036211B /* Info.plist */,
 				FC3223221F5D80F500113193 /* MockedRecords.json */,
-				FC3223241F5D967E00113193 /* Gallery.swift */,
-				FC3223261F5DA26D00113193 /* Lense.swift */,
-				FC3223281F5DB5B300113193 /* GalleryItem.swift */,
 			);
 			path = Telescope;
 			sourceTree = "<group>";
