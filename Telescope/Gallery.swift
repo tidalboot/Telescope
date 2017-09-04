@@ -92,7 +92,7 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             width: view.frame.size.width,
             height: view.frame.size.width * 0.65
         )
-        layout.minimumInteritemSpacing = 0
+        layout.minimumInteritemSpacing = 5
         layout.minimumLineSpacing = 0
         
         let gallerySize = CGRect(
@@ -114,7 +114,6 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         
         searchBar.becomeFirstResponder()
     }
-
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         view.endEditing(true)
