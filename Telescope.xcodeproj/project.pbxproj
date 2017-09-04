@@ -13,6 +13,8 @@
 		FCAE2A211F5D68190036211B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCAE2A201F5D68190036211B /* Assets.xcassets */; };
 		FCAE2A241F5D68190036211B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCAE2A221F5D68190036211B /* LaunchScreen.storyboard */; };
 		FCAE2A2F1F5D68190036211B /* TelescopeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAE2A2E1F5D68190036211B /* TelescopeTests.swift */; };
+		FCAE2A3A1F5D6B450036211B /* RecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAE2A391F5D6B450036211B /* RecordTests.swift */; };
+		FCAE2A3C1F5D6B9C0036211B /* MockedData in Resources */ = {isa = PBXBuildFile; fileRef = FCAE2A3B1F5D6B9C0036211B /* MockedData */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		FCAE2A2A1F5D68190036211B /* TelescopeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TelescopeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCAE2A2E1F5D68190036211B /* TelescopeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelescopeTests.swift; sourceTree = "<group>"; };
 		FCAE2A301F5D68190036211B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCAE2A391F5D6B450036211B /* RecordTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordTests.swift; sourceTree = "<group>"; };
+		FCAE2A3B1F5D6B9C0036211B /* MockedData */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MockedData; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,8 @@
 			children = (
 				FCAE2A2E1F5D68190036211B /* TelescopeTests.swift */,
 				FCAE2A301F5D68190036211B /* Info.plist */,
+				FCAE2A391F5D6B450036211B /* RecordTests.swift */,
+				FCAE2A3B1F5D6B9C0036211B /* MockedData */,
 			);
 			path = TelescopeTests;
 			sourceTree = "<group>";
@@ -146,6 +152,7 @@
 				TargetAttributes = {
 					FCAE2A151F5D68180036211B = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = YXQ38WDX5L;
 						ProvisioningStyle = Automatic;
 					};
 					FCAE2A291F5D68190036211B = {
@@ -189,6 +196,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCAE2A3C1F5D6B9C0036211B /* MockedData in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +216,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCAE2A3A1F5D6B450036211B /* RecordTests.swift in Sources */,
 				FCAE2A2F1F5D68190036211B /* TelescopeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +348,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = YXQ38WDX5L;
 				INFOPLIST_FILE = Telescope/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = NickJones.Telescope;
@@ -351,6 +361,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = YXQ38WDX5L;
 				INFOPLIST_FILE = Telescope/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = NickJones.Telescope;
