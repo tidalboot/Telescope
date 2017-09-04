@@ -1,7 +1,6 @@
 
 //  Created by Nick Jones on 04/09/2017.
 //  Copyright © 2017 NickJones. All rights reserved.
-//
 
 import Foundation
 import UIKit

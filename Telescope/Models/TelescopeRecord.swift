@@ -1,28 +1,24 @@
-//
-//  TelescopRecord.swift
-//  Telescope
-//
+
 //  Created by Nick Jones on 04/09/2017.
 //  Copyright © 2017 NickJones. All rights reserved.
-//
 
 import Foundation
-
-
 
 //We'll go for a class over a struct as any TelescopRecord objects will be initialised here and should never need to be copied anywhere for modification
 class TelescopeRecord {
     
+    // MARK: - Global Properties 🌎
     //All properties should be read only, leaving the initialiser to do all of the work, the app is an image gallery and so by definition is read-only itself.
     let Title: String
     let DateTaken: String
     let ImageDimensions: String
     let Author: String
-    //Whilst the API by default returns the medium image URL (_m) we can simply infer the original sized image by simply omitting the trailing m.
+    //Whilst the API by default returns the medium image URL (_m) we can simply infer the original sized image by simply omitting the trailing m. We'll store both as we're already getting back the medium image URL anyway and this allows us in the future to enhance the app by loading the small images (_s) first whilst loading the higher quality images in the background
     let Images: (Medium: String, Original: String?)
     
     
-    //We don't want this being accessed outside of this scope
+    // MARK: - Initialisers 🤖
+    //We don't want this being accessed outside of this scope as
     private init(withTitle title: String,
          dateTaken: String,
          dimensions: String,
@@ -51,7 +47,7 @@ class TelescopeRecord {
         Images = (Medium: imageURL, Original: originalImageURL)
     }
     
-    
+    // MARK: - Custom Methods 🔮
     //For ease of access and safety we always want this to return, at least, an empty typed array
     class func parseRecords(fromRawData rawData: Data?) -> [TelescopeRecord] {
         var telescopeRecords = [TelescopeRecord]()
@@ -155,5 +151,4 @@ class TelescopeRecord {
         }
         return nil
     }
-    
 }

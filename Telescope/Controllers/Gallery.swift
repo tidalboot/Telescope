@@ -1,10 +1,6 @@
-//
-//  Gallery.swift
-//  Telescope
-//
+
 //  Created by Nick Jones on 04/09/2017.
 //  Copyright © 2017 NickJones. All rights reserved.
-//
 
 import Foundation
 import UIKit
@@ -13,16 +9,18 @@ import SDWebImage
 //Going for Gallery rather than something like "GalleryController" as I think the inheritance from UIViewController provides this information itself
 class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
     
+    // MARK: - Constant Strings 🎻
+    // If the app were to grow there could be an argument to move these out to a seperate class to make localisation easier; For now they're fine
     private let findingImages = "Finding your images! \n🕵️🕵️‍♀️"
     private let noImages = "Sorry, we couldn't find any images for you\n😭"
     private let whatAreYouLookingFor = "What are you looking for today?\n🦄"
     
-    
+    // MARK: - Local Properties 💻
     private var gallery: UICollectionView!
+    private var helperLabel: UILabel!
     private var records = [TelescopeRecord]()
     
-    private var loadingLabel: UILabel!
-    
+    // MARK: - Collection View Delegate Methods 📦
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return records.count
     }
@@ -33,6 +31,7 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         
         let galleryItem = collectionView.dequeueReusableCell(withReuseIdentifier: "galleryItem", for: indexPath) as! GalleryItem
         
+        //GalleryItem Image
         galleryItem.imageView = UIImageView(frame: CGRect(
             x: 0,
             y: 0,
@@ -45,7 +44,9 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             let highQualityURL = URL(string: highQualityImageAvailable) {
                 galleryItem.imageView.sd_setImage(with: highQualityURL, placeholderImage: nil)
         }
+        //-----
         
+        //GalleryItem Label
         galleryItem.titleLabel = UILabel(frame: CGRect(
             x: 10,
             y: galleryItem.frame.size.height * 0.7,
@@ -57,27 +58,35 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         galleryItem.titleLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightLight)
         galleryItem.titleLabel.textColor = .white
         galleryItem.titleLabel.numberOfLines = 3
+        //-----
+        
         
         return galleryItem
     }
     
+    // MARK: - UIView Delegate Methods 👑
+    //Whilst we could move a lot of this out to builder methods or elsewhere since it's only being used it feels like a waste; Better to keep it here for now
     override func viewDidLoad() {
         
         view.backgroundColor = .white
         
-        loadingLabel = UILabel(frame: CGRect(
+        //Helper Label
+        helperLabel = UILabel(frame: CGRect(
             x: view.frame.size.width * 0.1,
             y: (view.frame.size.height * 0.4) - 125,
             width: view.frame.size.width * 0.8,
             height: 250
             )
         )
-        loadingLabel.numberOfLines = 0
-        loadingLabel.textColor = .darkGray
-        loadingLabel.textAlignment = .center
-        loadingLabel.font = UIFont.systemFont(ofSize: 40)
-        view.addSubview(loadingLabel)
+        helperLabel.numberOfLines = 0
+        helperLabel.textColor = .darkGray
+        helperLabel.textAlignment = .center
+        helperLabel.font = UIFont.systemFont(ofSize: 40)
+        view.addSubview(helperLabel)
+        //-----
         
+        
+        //Search Bar
         let searchBar = UISearchBar(frame: CGRect(
             x: 0,
             y: 20,
@@ -86,7 +95,10 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         )
         searchBar.delegate = self
         view.addSubview(searchBar)
+        //-----
         
+        
+        //Collection View Layout
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(
             width: view.frame.size.width,
@@ -94,7 +106,10 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         )
         layout.minimumInteritemSpacing = 5
         layout.minimumLineSpacing = 0
+        //-----
         
+        
+        //Gallery Collection View
         let gallerySize = CGRect(
             x: 0,
             y: searchBar.frame.origin.y + searchBar.frame.size.height,
@@ -109,12 +124,14 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         gallery.backgroundColor = .white
         gallery.alpha = 0
         gallery.layoutMargins = .zero
+        //-----
+        
         
         view.addSubview(gallery)
-        
         searchBar.becomeFirstResponder()
     }
     
+    // MARK: - Search Bar Delegate Methods 🔎
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         view.endEditing(true)
         if let searchBarText = searchBar.text {
@@ -126,16 +143,17 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         UIView.animate(withDuration: 0.3, animations: {
             self.gallery.alpha = 0
         }) { (_) in
-            self.loadingLabel.transitionText(withString: self.whatAreYouLookingFor)
+            self.helperLabel.transitionText(withString: self.whatAreYouLookingFor)
         }
         
         return true
     }
     
+    // MARK: - Custom Methods 🔮
     private func showNewImages() {
-        self.loadingLabel.text = ""
-        self.gallery.reloadData()
-        self.gallery.setContentOffset(.zero, animated: false)
+        helperLabel.text = ""
+        gallery.reloadData()
+        gallery.setContentOffset(.zero, animated: false)
         
         UIView.animate(withDuration: 0.5, animations: {
             self.gallery.alpha = 1
@@ -144,14 +162,14 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     
     private func getRecords(withSearchQuery searchQuery: String = "") {
         
-        loadingLabel.transitionText(withString: findingImages) {
+        helperLabel.transitionText(withString: findingImages) {
             UIView.animate(withDuration: 0.3, animations: {
                 self.gallery.alpha = 0
             }) { (_) in
                 Lense().requestRecords(withCompletionHandler: { (recordsReturned) in
                     DispatchQueue.main.async {
                         if (recordsReturned.isEmpty) {
-                            self.loadingLabel.transitionText(withString: self.noImages)
+                            self.helperLabel.transitionText(withString: self.noImages)
                             return
                         } else {
                             self.records = recordsReturned
@@ -162,5 +180,4 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             }
         }
     }
-    
 }

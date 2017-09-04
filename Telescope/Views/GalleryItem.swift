@@ -1,19 +1,17 @@
-//
-//  GalleryItem.swift
-//  Telescope
-//
+
 //  Created by Nick Jones on 04/09/2017.
 //  Copyright © 2017 NickJones. All rights reserved.
-//
 
 import Foundation
 import UIKit
 
 class GalleryItem: UICollectionViewCell {
+    // MARK: - Local Properties 💻
     private var _imageView: UIImageView!
     private var _titleLabel: UILabel!
     
     
+    // MARK: - Global Properties 🌎
     var titleLabel: UILabel {
         get {
             return _titleLabel
@@ -44,6 +42,7 @@ class GalleryItem: UICollectionViewCell {
         }
     }
     
+    // MARK: - UICollectionViewCell Methods 👑
     override func prepareForReuse() {
         super.prepareForReuse()
         _imageView?.removeFromSuperview()
