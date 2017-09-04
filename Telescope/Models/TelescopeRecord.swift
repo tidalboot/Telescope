@@ -86,10 +86,18 @@ class TelescopeRecord {
                     }
                 }
                 
+                var dimensions = "N/A"
+                if let rawDescription = record["description"] as? String {
+                    if let width = extractDescriptionValue(fromDescription: rawDescription, withKey: "width"),
+                        let height = extractDescriptionValue(fromDescription: rawDescription, withKey: "height") {
+                        dimensions = "\(width)x\(height)"
+                    }
+                }
+                
                 telescopeRecords.append(TelescopeRecord(
                     withTitle: title,
                     dateTaken: dateTaken,
-                    dimensions: "",
+                    dimensions: dimensions,
                     author: "",
                     andImageURL: "")
                 )
@@ -99,6 +107,22 @@ class TelescopeRecord {
         } catch {
             return telescopeRecords
         }
+    }
+    
+    //Even doing this twice feels clunky; This also allows any future description values to be extraced easily
+    private class func extractDescriptionValue(fromDescription description: String, withKey key: String) -> String? {
+        let availableStrings = description.components(separatedBy: .whitespaces)
+        for stringSet in availableStrings {
+            if (stringSet.contains(key)) {
+                let components = stringSet.components(separatedBy: "\"")
+                for component in components {
+                    if (!component.contains(key)) {
+                        return component
+                    }
+                }
+            }
+        }
+        return nil
     }
     
 }

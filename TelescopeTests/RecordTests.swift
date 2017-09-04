@@ -92,39 +92,39 @@ class RecordTests: XCTestCase {
         )
     }
     
-//    func testImageDimensionsAreInTheCorrectFormatWhenAvailable() {
-//        let records = TelescopeRecord.parseRecords(fromRawData: mockedRecordsData)
-//
-//        if (records.isEmpty) {
-//            XCTFail("No records were found")
-//        }
-//
-//        //We're safe to force unwrap the first object here because we've already checked that the array is not empty
-//        XCTAssertEqual(
-//            records.first!.ImageDimensions,
-//            "240x180",
-//            "Dimensions property is not being extracted when available"
-//        )
-//    }
-//
-//    func testDefaultImageDimensionsValueIsCorrectWhenDimensionsAreUnavailable() {
-//        let records = TelescopeRecord.parseRecords(fromRawData: mockedRecordsData)
-//
-//        if (records.isEmpty) {
-//            XCTFail("No records were found")
-//        }
-//
-//        //Again we're safe to force unwrap the first object here because we've already checked that the array contains two objects
-//        if (records.count < 2) {
-//            XCTFail("Incorrect number of records are being parsed from the mocked data")
-//        }
-//
-//        XCTAssertEqual(
-//            records[1].ImageDimensions,
-//            "N/A",
-//            "Dimensions property is not being set to the correct default value when dimensions are not available"
-//        )
-//    }
+    func testImageDimensionsAreInTheCorrectFormatWhenAvailable() {
+        let records = TelescopeRecord.parseRecords(fromRawData: mockedRecordsData)
+        
+        if (records.isEmpty) {
+            XCTFail("No records were found")
+        }
+        
+        //We're safe to force unwrap the first object here because we've already checked that the array is not empty
+        XCTAssertEqual(
+            records.first!.ImageDimensions,
+            "240x180",
+            "Dimensions property is not being extracted when available"
+        )
+    }
+    
+    func testDefaultImageDimensionsValueIsCorrectWhenDimensionsAreUnavailable() {
+        let records = TelescopeRecord.parseRecords(fromRawData: mockedRecordsData)
+        
+        if (records.isEmpty) {
+            XCTFail("No records were found")
+        }
+        
+        //Again we're safe to force unwrap the first object here because we've already checked that the array contains two objects
+        if (records.count < 2) {
+            XCTFail("Incorrect number of records are being parsed from the mocked data")
+        }
+        
+        XCTAssertEqual(
+            records[1].ImageDimensions,
+            "N/A",
+            "Dimensions property is not being set to the correct default value when dimensions are not available"
+        )
+    }
 //
 //    func testAuthorIsRetrievedWhenAvailable() {
 //        let records = TelescopeRecord.parseRecords(fromRawData: mockedRecordsData)
