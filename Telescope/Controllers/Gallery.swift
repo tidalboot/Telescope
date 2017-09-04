@@ -42,6 +42,8 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         
         if let highQualityImageAvailable = recordToUse.Images.Original,
             let highQualityURL = URL(string: highQualityImageAvailable) {
+            //IMPORTANT:
+            //Here we make use of SDWebImage to both download our image in the background, but most importantly cache the image once downloaded
                 galleryItem.imageView.sd_setImage(with: highQualityURL, placeholderImage: nil)
         }
         //-----
