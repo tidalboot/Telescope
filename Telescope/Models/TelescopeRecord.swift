@@ -70,12 +70,25 @@ class TelescopeRecord {
                 return telescopeRecords
             }
             
-            for _ in records {
+            for record in records {
                 //First we attempt to extract a profile image URL string
+                
+                var dateTaken = "N/A"
+                if let rawDate = record["date_taken"] as? String {
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                    
+                    if let dateFound = dateFormatter.date(from: rawDate) {
+                        //We reuse our existing date formatter but simply change the format as they're very expensive to make
+                        dateFormatter.dateFormat = "MMM dd, yyyy"
+                        dateTaken = dateFormatter.string(from: dateFound)
+                    }
+                }
+                
                 
                 telescopeRecords.append(TelescopeRecord(
                     withTitle: "",
-                    dateTaken: "",
+                    dateTaken: dateTaken,
                     dimensions: "",
                     author: "",
                     andImageURL: "")

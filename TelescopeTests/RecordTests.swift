@@ -32,34 +32,36 @@ class RecordTests: XCTestCase {
         XCTAssert(records.count == 2, "Unable to parse the correct number of records from the mocked data")
     }
     
-//    func testDateTakenIsReturnedInTheCorrectFormat() {
-//        let records = TelescopeRecord.parseRecords(fromRawData: mockedRecordsData)
-//        
-//        if (records.isEmpty) {
-//            XCTFail("No records were found")
-//        }
-//        
-//        XCTAssertEqual(
-//            records.first.DateTaken,
-//            "3rd September 2017",
-//            "Record date taken is not being parsed to the correct format"
-//        )
-//    }
+    func testDateTakenIsReturnedInTheCorrectFormat() {
+        let records = TelescopeRecord.parseRecords(fromRawData: mockedRecordsData)
+        
+        if (records.isEmpty) {
+            XCTFail("No records were found")
+        }
+        
+        //We're safe to force unwrap the first object here because we've already checked that the array is not empty
+        XCTAssertEqual(
+            records.first!.DateTaken,
+            "Sep 03, 2017",
+            "Record date taken is not being parsed to the correct format"
+        )
+    }
     
-//    func testDateTakenIsReturnedInTheCorrectFormat() {
-//        let records = TelescopeRecord.parseRecords(fromRawData: mockedRecordsData)
+    func testDefaultDateTakenValueIsCorrectWhenDateTakenIsUnavailable() {
+        let records = TelescopeRecord.parseRecords(fromRawData: mockedRecordsData)
+        
+        if (records.count < 2) {
+            XCTFail("Incorrect number of records are being parsed from the mocked data")
+        }
+        
+        //Again e're safe to force unwrap the first object here because we've already checked that the array contains two objects
+        XCTAssertEqual(
+            records[1].DateTaken,
+            "N/A",
+            "Date taken property is not being set to the correct default value when date taken is not available"
+        )
+    }
 //
-//        if (records.isEmpty) {
-//            XCTFail("No records were found")
-//        }
-//
-//        XCTAssertEqual(
-//            records[1].DateTaken,
-//            "N/A",
-//            "Date taken property is not being set to the correct default value when date taken is not available"
-//        )
-//    }
-//    
 //    func testImageDimensionsAreInTheCorrectFormatWhenAvailable() {
 //        let records = TelescopeRecord.parseRecords(fromRawData: mockedRecordsData)
 //        
