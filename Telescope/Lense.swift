@@ -8,7 +8,7 @@ import Foundation
 class Lense {
     
     //The base endpoint shouldn't be modifiable outside of this class
-    private let apiEndpoint = "https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1"
+    private let apiEndpoint = "https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1&tags=starcraft"
     
     func requestRecords(withCompletionHandler completionAction: @escaping ([TelescopeRecord]) -> Void) {
         

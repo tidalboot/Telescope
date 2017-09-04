@@ -8,9 +8,49 @@
 
 import Foundation
 import UIKit
+import SDWebImage
 
 class GalleryItem: UICollectionViewCell {
+    private var _imageView: UIImageView!
+    private var _titleLabel: UILabel!
     
+    
+    var titleLabel: UILabel {
+        get {
+            return _titleLabel
+        } set {
+            _titleLabel = _titleLabel ?? newValue
+            contentView.addSubview(_titleLabel)
+        }
+    }
+    
+    var imageView: UIImageView {
+        get {
+            return _imageView
+        } set {
+            _imageView = _imageView ?? newValue
+            _imageView.contentMode = .scaleAspectFill
+            _imageView.clipsToBounds = true
+            
+            let backgroundGradient = CAGradientLayer()
+            backgroundGradient.frame = _imageView.frame
+            backgroundGradient.locations = [0.0, 0.75]
+            let fadedLightGray = UIColor.init(colorLiteralRed: 177.0 / 255.0, green: 177.0 / 255.0, blue: 177.0 / 255.0, alpha: 0.05)
+            let fadedBlack = UIColor.init(colorLiteralRed: 0.0 / 255.0, green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 0.75)
+            backgroundGradient.colors = [fadedLightGray.cgColor, fadedBlack.cgColor]
+            _imageView.layer.insertSublayer(backgroundGradient, at: 1)
+            
+            contentView.addSubview(_imageView)
+        }
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        _imageView?.removeFromSuperview()
+        _titleLabel.removeFromSuperview()
+        _titleLabel = nil
+        _imageView = nil
+    }
 }
 
 //Going for Gallery rather than something like "GalleryController" as I think the inheritance from UIViewController provides this information itself
@@ -25,36 +65,32 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        let recordToUse = records[indexPath.row]
+        
         let galleryItem = collectionView.dequeueReusableCell(withReuseIdentifier: "galleryItem", for: indexPath) as! GalleryItem
         
-        let itemImage = UIImageView(frame: CGRect(
+        galleryItem.imageView = UIImageView(frame: CGRect(
             x: 0,
             y: 0,
             width: galleryItem.frame.size.width,
             height: galleryItem.frame.size.height
             )
         )
-        galleryItem.addSubview(itemImage)
         
-        let backgroundGradient = CAGradientLayer()
-        backgroundGradient.frame = itemImage.frame
-        backgroundGradient.locations = [0.0, 0.7]
-        let fadedLightGray = UIColor.init(colorLiteralRed: 177.0 / 255.0, green: 177.0 / 255.0, blue: 177.0 / 255.0, alpha: 0.25)
-        let fadedBlack = UIColor.init(colorLiteralRed: 0.0 / 255.0, green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 0.75)
-        backgroundGradient.colors = [fadedLightGray.cgColor, fadedBlack.cgColor]
-        itemImage.layer.insertSublayer(backgroundGradient, at: 1)
+        if let imageURL = URL(string: recordToUse.Images.Medium) {
+            galleryItem.imageView.sd_setImage(with: imageURL, placeholderImage: nil)
+        }
         
-        let itemTitle = UILabel(frame: CGRect(
+        galleryItem.titleLabel = UILabel(frame: CGRect(
             x: 10,
             y: galleryItem.frame.size.height * 0.7,
             width: galleryItem.frame.size.width - 20,
             height: galleryItem.frame.size.height * 0.3
             )
         )
-        itemTitle.text = records[indexPath.row].Title
-        itemTitle.textColor = .white
-        itemTitle.numberOfLines = 2
-        galleryItem.addSubview(itemTitle)
+        galleryItem.titleLabel.text = recordToUse.Title
+        galleryItem.titleLabel.textColor = .white
+        galleryItem.titleLabel.numberOfLines = 2
         
         return galleryItem
     }
@@ -63,8 +99,8 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(
-            width: view.frame.size.width * 0.5,
-            height: view.frame.size.width * 0.5
+            width: view.frame.size.width,
+            height: view.frame.size.width * 0.65
         )
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
