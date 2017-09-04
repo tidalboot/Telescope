@@ -103,9 +103,25 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		FC32232C1F5DC5EF00113193 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FC32232A1F5DBCE800113193 /* TransitionText.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FC32232D1F5DC60100113193 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
 		FCAE2A0D1F5D68180036211B = {
 			isa = PBXGroup;
 			children = (
+				FC32232D1F5DC60100113193 /* New Group */,
 				FCAE2A181F5D68190036211B /* Telescope */,
 				FCAE2A2D1F5D68190036211B /* TelescopeTests */,
 				FCAE2A171F5D68190036211B /* Products */,
@@ -126,6 +142,7 @@
 		FCAE2A181F5D68190036211B /* Telescope */ = {
 			isa = PBXGroup;
 			children = (
+				FC32232C1F5DC5EF00113193 /* Extensions */,
 				FC32231D1F5D748F00113193 /* Models */,
 				FCAE2A191F5D68190036211B /* AppDelegate.swift */,
 				FCAE2A201F5D68190036211B /* Assets.xcassets */,
@@ -135,7 +152,6 @@
 				FC3223241F5D967E00113193 /* Gallery.swift */,
 				FC3223261F5DA26D00113193 /* Lense.swift */,
 				FC3223281F5DB5B300113193 /* GalleryItem.swift */,
-				FC32232A1F5DBCE800113193 /* TransitionText.swift */,
 			);
 			path = Telescope;
 			sourceTree = "<group>";

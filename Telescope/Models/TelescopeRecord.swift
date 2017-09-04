@@ -14,7 +14,6 @@ import Foundation
 class TelescopeRecord {
     
     //All properties should be read only, leaving the initialiser to do all of the work, the app is an image gallery and so by definition is read-only itself.
-    
     let Title: String
     let DateTaken: String
     let ImageDimensions: String
@@ -29,7 +28,8 @@ class TelescopeRecord {
          dimensions: String,
          author: String,
          andImageURL imageURL: String) {
-        Title = title
+        
+        Title = title.components(separatedBy: .whitespacesAndNewlines).first ?? title
         DateTaken = dateTaken
         ImageDimensions = dimensions
         Author = author
@@ -82,9 +82,11 @@ class TelescopeRecord {
                 }
                 //----------
                 
+                
                 //TITLE
                 let title = record["title"] as? String ?? "N/A"
                 //----------
+                
                 
                 //DATETAKEN
                 var dateTaken = "N/A"
@@ -100,6 +102,7 @@ class TelescopeRecord {
                 }
                 //----------
                 
+                
                 //DIMENSIONS
                 var dimensions = "N/A"
                 if let rawDescription = record["description"] as? String {
@@ -109,6 +112,7 @@ class TelescopeRecord {
                     }
                 }
                 //----------
+                
                 
                 //AUTHOR
                 var author = "N/A"

@@ -48,15 +48,20 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         galleryItem.titleLabel = UILabel(frame: CGRect(
             x: 10,
             y: galleryItem.frame.size.height * 0.7,
-            width: galleryItem.frame.size.width - 20,
+            width: galleryItem.frame.size.width,
             height: galleryItem.frame.size.height * 0.3
             )
         )
-        galleryItem.titleLabel.text = recordToUse.Title
+        galleryItem.titleLabel.text = "\(recordToUse.Title) by \(recordToUse.Author)\n\(recordToUse.DateTaken)\n\(recordToUse.ImageDimensions)"
+        galleryItem.titleLabel.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightLight)
         galleryItem.titleLabel.textColor = .white
-        galleryItem.titleLabel.numberOfLines = 2
+        galleryItem.titleLabel.numberOfLines = 3
         
         return galleryItem
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
     }
     
     override func viewDidLoad() {
@@ -71,7 +76,7 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             )
         )
         loadingLabel.numberOfLines = 0
-        loadingLabel.text = findingImages
+        loadingLabel.text = whatAreYouLookingFor
         loadingLabel.textColor = .darkGray
         loadingLabel.textAlignment = .center
         loadingLabel.font = UIFont.systemFont(ofSize: 40)
@@ -98,7 +103,7 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             x: 0,
             y: searchBar.frame.origin.y + searchBar.frame.size.height,
             width: view.frame.size.width,
-            height: view.frame.size.height - 50
+            height: view.frame.size.height - (searchBar.frame.origin.y + searchBar.frame.size.height)
         )
         gallery = UICollectionView(frame: gallerySize, collectionViewLayout: layout)
         gallery.contentInset = .zero
@@ -106,10 +111,11 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         gallery.dataSource = self
         gallery.register(GalleryItem.self, forCellWithReuseIdentifier: "galleryItem")
         gallery.backgroundColor = .white
+        gallery.alpha = 0
         
         view.addSubview(gallery)
         
-        getRecords(withSearchQuery: "Tigerspike")
+        searchBar.becomeFirstResponder()        
     }
 
     
