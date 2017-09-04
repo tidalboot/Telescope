@@ -154,26 +154,27 @@ class RecordTests: XCTestCase {
             XCTFail("Incorrect number of records are being parsed from the mocked data")
         }
         
-        
         XCTAssertEqual(
             records[1].Author,
             "N/A",
             "Author property is not being set to the correct default value when the author is not available"
         )
     }
-//
-//    func testOriginalSizedImageURLIsCorrectlyInferredFromMediumImageURL() {
-//        let records = TelescopeRecord.parseRecords(fromRawData: mockedRecordsData)
-//        
-//        if (records.isEmpty) {
-//            XCTFail("No records were found")
-//        }
-//        
-//        XCTAssertEqual(
-//            records.first.Images.Original,
-//            "https://farm5.staticflickr.com/4353/36184066574_e352dc6bd7.jpg",
-//            "Original sized image URL is not being inferred from the default provided medium image URL")
-//    }
+    
+    func testOriginalSizedImageURLIsCorrectlyInferredFromMediumImageURL() {
+        let records = TelescopeRecord.parseRecords(fromRawData: mockedRecordsData)
+        
+        if (records.isEmpty) {
+            XCTFail("No records were found")
+        }
+        
+        let testURL = "https://farm5.staticflickr.com/4353/36184066574_e352dc6bd7.jpg"
+        //We're safe to force unwrap the first object here because we've already checked that the array is not empty
+        XCTAssertEqual(
+            records.first?.Images.Original,
+            testURL,
+            "Original sized image URL is not being inferred from the default provided medium image URL")
+    }
 }
 
 

@@ -36,7 +36,7 @@ class TelescopeRecord {
         
         var originalImageURL: String?
         
-        //First we need to get all of the URL before the file extension definition
+        //First we need to get all of the URL before the file extension definition, for now since all images are being returned as JPG we'll stuck with this as it keeps it far simpler; Going forward if we wanted to support multiple image types we'd need to make this a bit more complex.
         let originalImageSize = imageURL.components(separatedBy: ".jpg")
         if (!originalImageSize.isEmpty) {
             //Next we get the value on the left side of the file extension
@@ -44,8 +44,7 @@ class TelescopeRecord {
                 //And finally we check if the _m identifier is available
                 //NOTE: We need to do it this way rather than simply searching for _m as the image URL itself could contain _m at any point; We're only interested in removing it from the very end if it's present as this is where it's a predefinde modifier rather than part of the URL itself.
                 if (firstSegment.suffix(2) == "_m") {
-                    //And if so drop it to get our original image URL
-                    originalImageURL = String(firstSegment.dropLast(2))
+                    originalImageURL = "\(String(firstSegment.dropLast(2))).jpg"
                 }
             }
         }
@@ -71,6 +70,17 @@ class TelescopeRecord {
             }
             
             for record in records {
+                
+                //IMAGEURL
+                //We do this first because a record MUST have an image url for it to be a valid record. If we're unable to find one for a given record then we simply omit the record from the list
+                guard let imageURLs = record["media"] as? [String : String] else {
+                    break
+                }
+                
+                guard let imageURL = imageURLs["m"] else {
+                    break
+                }
+                //----------
                 
                 //TITLE
                 let title = record["title"] as? String ?? "N/A"
@@ -116,7 +126,7 @@ class TelescopeRecord {
                     dateTaken: dateTaken,
                     dimensions: dimensions,
                     author: author,
-                    andImageURL: "")
+                    andImageURL: imageURL)
                 )
             }
             
