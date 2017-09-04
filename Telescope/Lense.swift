@@ -8,13 +8,15 @@ import Foundation
 class Lense {
     
     //The base endpoint shouldn't be modifiable outside of this class
-    private let apiEndpoint = "https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1&tags=starcraft"
+    private let apiEndpoint = "https://api.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1"
     
-    func requestRecords(withCompletionHandler completionAction: @escaping ([TelescopeRecord]) -> Void) {
+    func requestRecords(withCompletionHandler completionAction: @escaping ([TelescopeRecord]) -> Void, andSearchQuery searchQuery: String = "") {
+        
+        let endpointToUse = "\(apiEndpoint)&tags=\(searchQuery.replacingOccurrences(of: " ", with: "+"))"
         
         var records = [TelescopeRecord]()
         
-        guard let endpointURL = URL(string: apiEndpoint) else {
+        guard let endpointURL = URL(string: endpointToUse) else {
             completionAction(records)
             return
         }

@@ -14,6 +14,8 @@
 		FC3223231F5D80F500113193 /* MockedRecords.json in Resources */ = {isa = PBXBuildFile; fileRef = FC3223221F5D80F500113193 /* MockedRecords.json */; };
 		FC3223251F5D967E00113193 /* Gallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3223241F5D967E00113193 /* Gallery.swift */; };
 		FC3223271F5DA26D00113193 /* Lense.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3223261F5DA26D00113193 /* Lense.swift */; };
+		FC3223291F5DB5B300113193 /* GalleryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3223281F5DB5B300113193 /* GalleryItem.swift */; };
+		FC32232B1F5DBCE800113193 /* TransitionText.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32232A1F5DBCE800113193 /* TransitionText.swift */; };
 		FCAE2A1A1F5D68190036211B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAE2A191F5D68190036211B /* AppDelegate.swift */; };
 		FCAE2A211F5D68190036211B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCAE2A201F5D68190036211B /* Assets.xcassets */; };
 		FCAE2A241F5D68190036211B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCAE2A221F5D68190036211B /* LaunchScreen.storyboard */; };
@@ -41,6 +43,8 @@
 		FC3223221F5D80F500113193 /* MockedRecords.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockedRecords.json; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.javascript; };
 		FC3223241F5D967E00113193 /* Gallery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gallery.swift; sourceTree = "<group>"; };
 		FC3223261F5DA26D00113193 /* Lense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lense.swift; sourceTree = "<group>"; };
+		FC3223281F5DB5B300113193 /* GalleryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryItem.swift; sourceTree = "<group>"; };
+		FC32232A1F5DBCE800113193 /* TransitionText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionText.swift; sourceTree = "<group>"; };
 		FCAE2A161F5D68190036211B /* Telescope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Telescope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCAE2A191F5D68190036211B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCAE2A201F5D68190036211B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 				FC3223221F5D80F500113193 /* MockedRecords.json */,
 				FC3223241F5D967E00113193 /* Gallery.swift */,
 				FC3223261F5DA26D00113193 /* Lense.swift */,
+				FC3223281F5DB5B300113193 /* GalleryItem.swift */,
+				FC32232A1F5DBCE800113193 /* TransitionText.swift */,
 			);
 			path = Telescope;
 			sourceTree = "<group>";
@@ -346,8 +352,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC3223291F5DB5B300113193 /* GalleryItem.swift in Sources */,
 				FC3223251F5D967E00113193 /* Gallery.swift in Sources */,
 				FC3223271F5DA26D00113193 /* Lense.swift in Sources */,
+				FC32232B1F5DBCE800113193 /* TransitionText.swift in Sources */,
 				FCAE2A1A1F5D68190036211B /* AppDelegate.swift in Sources */,
 				FC32231F1F5D749F00113193 /* TelescopeRecord.swift in Sources */,
 			);

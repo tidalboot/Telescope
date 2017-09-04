@@ -10,54 +10,18 @@ import Foundation
 import UIKit
 import SDWebImage
 
-class GalleryItem: UICollectionViewCell {
-    private var _imageView: UIImageView!
-    private var _titleLabel: UILabel!
-    
-    
-    var titleLabel: UILabel {
-        get {
-            return _titleLabel
-        } set {
-            _titleLabel = _titleLabel ?? newValue
-            contentView.addSubview(_titleLabel)
-        }
-    }
-    
-    var imageView: UIImageView {
-        get {
-            return _imageView
-        } set {
-            _imageView = _imageView ?? newValue
-            _imageView.contentMode = .scaleAspectFill
-            _imageView.clipsToBounds = true
-            
-            let backgroundGradient = CAGradientLayer()
-            backgroundGradient.frame = _imageView.frame
-            backgroundGradient.locations = [0.0, 0.75]
-            let fadedLightGray = UIColor.init(colorLiteralRed: 177.0 / 255.0, green: 177.0 / 255.0, blue: 177.0 / 255.0, alpha: 0.05)
-            let fadedBlack = UIColor.init(colorLiteralRed: 0.0 / 255.0, green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 0.75)
-            backgroundGradient.colors = [fadedLightGray.cgColor, fadedBlack.cgColor]
-            _imageView.layer.insertSublayer(backgroundGradient, at: 1)
-            
-            contentView.addSubview(_imageView)
-        }
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        _imageView?.removeFromSuperview()
-        _titleLabel.removeFromSuperview()
-        _titleLabel = nil
-        _imageView = nil
-    }
-}
-
 //Going for Gallery rather than something like "GalleryController" as I think the inheritance from UIViewController provides this information itself
-class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
+    
+    private let findingImages = "Finding your images! \n🕵️🕵️‍♀️"
+    private let noImages = "Sorry, we couldn't find any images for you\n😭"
+    private let whatAreYouLookingFor = "What are you looking for today?\n🦄"
+    
     
     private var gallery: UICollectionView!
     private var records = [TelescopeRecord]()
+    
+    private var loadingLabel: UILabel!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return records.count
@@ -97,6 +61,31 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
     
     override func viewDidLoad() {
         
+        view.backgroundColor = .white
+        
+        loadingLabel = UILabel(frame: CGRect(
+            x: view.frame.size.width * 0.1,
+            y: (view.frame.size.height * 0.4) - 125,
+            width: view.frame.size.width * 0.8,
+            height: 250
+            )
+        )
+        loadingLabel.numberOfLines = 0
+        loadingLabel.text = findingImages
+        loadingLabel.textColor = .darkGray
+        loadingLabel.textAlignment = .center
+        loadingLabel.font = UIFont.systemFont(ofSize: 40)
+        view.addSubview(loadingLabel)
+        
+        let searchBar = UISearchBar(frame: CGRect(
+            x: 0,
+            y: 20,
+            width: view.frame.size.width,
+            height: 50)
+        )
+        searchBar.delegate = self
+        view.addSubview(searchBar)
+        
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(
             width: view.frame.size.width,
@@ -105,7 +94,13 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         
-        gallery = UICollectionView(frame: view.frame, collectionViewLayout: layout)
+        let gallerySize = CGRect(
+            x: 0,
+            y: searchBar.frame.origin.y + searchBar.frame.size.height,
+            width: view.frame.size.width,
+            height: view.frame.size.height - 50
+        )
+        gallery = UICollectionView(frame: gallerySize, collectionViewLayout: layout)
         gallery.contentInset = .zero
         gallery.delegate = self
         gallery.dataSource = self
@@ -114,14 +109,54 @@ class Gallery: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         
         view.addSubview(gallery)
         
-        getRecords()
+        getRecords(withSearchQuery: "Tigerspike")
+    }
+
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        view.endEditing(true)
+        if let searchBarText = searchBar.text {
+            getRecords(withSearchQuery: searchBarText)
+        }
     }
     
-    private func getRecords() {
-        Lense().requestRecords { (recordsReturned) in
-            DispatchQueue.main.async {
-                self.records = recordsReturned
-                self.gallery.reloadData()
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.gallery.alpha = 0
+        }) { (_) in
+            self.loadingLabel.transitionText(withString: self.whatAreYouLookingFor)
+        }
+        
+        return true
+    }
+    
+    private func showNewImages() {
+        self.loadingLabel.text = ""
+        self.gallery.reloadData()
+        self.gallery.setContentOffset(.zero, animated: false)
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.gallery.alpha = 1
+        })
+    }
+    
+    private func getRecords(withSearchQuery searchQuery: String = "") {
+        
+        loadingLabel.transitionText(withString: findingImages) {
+            UIView.animate(withDuration: 0.3, animations: {
+                self.gallery.alpha = 0
+            }) { (_) in
+                Lense().requestRecords(withCompletionHandler: { (recordsReturned) in
+                    DispatchQueue.main.async {
+                        if (recordsReturned.isEmpty) {
+                            self.loadingLabel.transitionText(withString: self.noImages)
+                            return
+                        } else {
+                            self.records = recordsReturned
+                            self.showNewImages()
+                        }
+                    }
+                }, andSearchQuery: searchQuery)
             }
         }
     }
