@@ -12,7 +12,6 @@
 		FCAE2A1F1F5D68190036211B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCAE2A1D1F5D68190036211B /* Main.storyboard */; };
 		FCAE2A211F5D68190036211B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCAE2A201F5D68190036211B /* Assets.xcassets */; };
 		FCAE2A241F5D68190036211B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCAE2A221F5D68190036211B /* LaunchScreen.storyboard */; };
-		FCAE2A2F1F5D68190036211B /* TelescopeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAE2A2E1F5D68190036211B /* TelescopeTests.swift */; };
 		FCAE2A3A1F5D6B450036211B /* RecordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAE2A391F5D6B450036211B /* RecordTests.swift */; };
 		FCAE2A3C1F5D6B9C0036211B /* MockedData in Resources */ = {isa = PBXBuildFile; fileRef = FCAE2A3B1F5D6B9C0036211B /* MockedData */; };
 /* End PBXBuildFile section */
@@ -36,7 +35,6 @@
 		FCAE2A231F5D68190036211B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FCAE2A251F5D68190036211B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCAE2A2A1F5D68190036211B /* TelescopeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TelescopeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FCAE2A2E1F5D68190036211B /* TelescopeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelescopeTests.swift; sourceTree = "<group>"; };
 		FCAE2A301F5D68190036211B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCAE2A391F5D6B450036211B /* RecordTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordTests.swift; sourceTree = "<group>"; };
 		FCAE2A3B1F5D6B9C0036211B /* MockedData */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MockedData; sourceTree = "<group>"; };
@@ -94,7 +92,6 @@
 		FCAE2A2D1F5D68190036211B /* TelescopeTests */ = {
 			isa = PBXGroup;
 			children = (
-				FCAE2A2E1F5D68190036211B /* TelescopeTests.swift */,
 				FCAE2A301F5D68190036211B /* Info.plist */,
 				FCAE2A391F5D6B450036211B /* RecordTests.swift */,
 				FCAE2A3B1F5D6B9C0036211B /* MockedData */,
@@ -217,7 +214,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCAE2A3A1F5D6B450036211B /* RecordTests.swift in Sources */,
-				FCAE2A2F1F5D68190036211B /* TelescopeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
