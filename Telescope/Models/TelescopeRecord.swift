@@ -71,7 +71,8 @@ class TelescopeRecord {
             }
             
             for record in records {
-                //First we attempt to extract a profile image URL string
+                
+                let title = record["title"] as? String ?? "N/A"
                 
                 var dateTaken = "N/A"
                 if let rawDate = record["date_taken"] as? String {
@@ -85,9 +86,8 @@ class TelescopeRecord {
                     }
                 }
                 
-                
                 telescopeRecords.append(TelescopeRecord(
-                    withTitle: "",
+                    withTitle: title,
                     dateTaken: dateTaken,
                     dimensions: "",
                     author: "",

@@ -7,7 +7,7 @@
     "generator": "https:\/\/www.flickr.com",
     "items": [
               {
-              "title": "IMG_20170903_123034_3CS",
+              "title": "Great Title",
               "link": "https:\/\/www.flickr.com\/photos\/158762335@N05\/36184066574\/",
               "media": {"m":"https:\/\/farm5.staticflickr.com\/4353\/36184066574_e352dc6bd7_m.jpg",
               "s":"https:\/\/farm5.staticflickr.com\/4353\/36184066574_e352dc6bd7_s.jpg"
@@ -20,7 +20,7 @@
               "tags": ""
               },
               {
-              "title": "Feuerwanzen - Spa , NGID1601974506",
+              "title": null,
               "link": "https:\/\/www.flickr.com\/photos\/12639178@N07\/36622647380\/",
               "media": {"m":"https:\/\/farm5.staticflickr.com\/4388\/36622647380_45e44c49fb_m.jpg"},
               "date_taken": null,
